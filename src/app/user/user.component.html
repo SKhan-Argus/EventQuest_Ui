@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Welcome to the User Dashboard</h2>
+    <div class="search-form">
+      <h3>Search Events by Name</h3>
+      <form ngNativeValidate>
+        <input type="text" [(ngModel)]="eventName" name="eventName" placeholder="Enter event name or keyword" required>
+        <button type="submit" (click)="searchEventsWithName()">Search</button>
+      </form>
+
+    </div>
+    <div class="search-form">
+        <h3>Search Events by Location</h3>
+        <form ngNativeValidate>
+          <input type="text" [(ngModel)]="eventLocation" name="eventLocation" placeholder="Enter event location" required>
+          <button type="submit" (click)="searchEventsWithLocation()">Search</button>
+        </form>
+      </div>
+    <div class="events-list">
+      <h3>Events List</h3>
+      <ul>
+        <li *ngFor="let event of events">
+          <h4>{{ event.name }}</h4>
+          <p>{{ event.date }}</p>
+          <button (click)="bookEvent(event)">Book Event</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

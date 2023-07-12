@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginForm } from '../interface/LoginForm';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,20 +11,19 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent {
   loginForm: LoginForm = {
     username: '',
-    password: '',
+    password: ''
   };
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router:Router) {}
 
   login() {
     this.http.post('http://localhost:8080/users/login', this.loginForm).subscribe(
       (response: any) => {
-        if (response.status === 200) {
+        if (response.success===true) {
           // Login successful
-          console.log("success");
+          console.log("success")
           
-          console.log(response);
+          this.router.navigate(['/user']);
 
-          // Redirect to the desired page or perform any other actions
         } else {
           // Login failed
           console.log(response);

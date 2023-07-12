@@ -1,7 +1,7 @@
 <div class="container">
     <div class="login-form">
       <h2>Login</h2>
-      <form (ngSubmit)="login()">
+      <form ngNativeValidate (ngSubmit)="login()" autocomplete="off">
         <div class="form-group">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" [(ngModel)]="loginForm.username" required>
