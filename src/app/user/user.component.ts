@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Event } from '../interface/Event';
 import { HttpClient } from '@angular/common/http';
-
+import { Booking } from '../interface/Booking';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { EventDialogComponent } from '../event-dialog/event-dialog.component';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -12,7 +14,8 @@ export class UserComponent {
   eventLocation: string = '';
   events:Event[]=[];
 
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient, private dialog:MatDialog, ) {}
 
   searchEventsWithName() {
 
@@ -41,5 +44,29 @@ export class UserComponent {
         
        });
   }
-  bookEvent(event:Event){}
+  bookSeat(event:Event){
+    let dialogRef = this.dialog.open(EventDialogComponent, {
+      width: '500px',
+      data: {
+        event,
+      }
+    });
+    const backgroundButtons = document.querySelectorAll('.background');
+    backgroundButtons.forEach((button: Element) => {
+      (button as HTMLButtonElement).disabled = true;
+    });
+    
+    document.body.classList.add('blur-background');
+
+    dialogRef.afterClosed().subscribe(() => {
+      const backgroundButtons = document.querySelectorAll('.background');
+      backgroundButtons.forEach((button: Element) => {
+        (button as HTMLButtonElement).disabled = false;
+      });
+  
+      document.body.classList.remove('blur-background');
+    })
+    
+
+  }
 }
