@@ -1,4 +1,4 @@
-<div class="booking-details">
+<div class="booking-details" #content>
     <h2>Booking Details</h2>
     <div class="booking-info">
       <p><strong>Event Name:</strong> {{ event.name }}</p>
@@ -8,5 +8,8 @@
       <p><strong>Ticket Quantity:</strong> {{ booking.ticketQuantity }}</p>
       <p><strong>Total Price:</strong> {{ booking.totalPrice }}</p>
     </div>
+  </div>
+  <div>
+    <button (click)="generatePdf()">Download Ticket</button>
   </div>
   

@@ -6,7 +6,7 @@ body{
     position: relative;
 }
 app-root{
-    width: 1000px;
+    width: 100%;
     position: absolute;
 }
 
