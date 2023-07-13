@@ -13,6 +13,7 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { EventDialogComponent } from './event-dialog/event-dialog.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { EventDialogComponent } from './event-dialog/event-dialog.component';
     HomeComponent,
     UserComponent,
     EventDialogComponent,
+    BookingComponent,
   ],
   imports: [
     BrowserModule,

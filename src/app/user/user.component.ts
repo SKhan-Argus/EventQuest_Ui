@@ -17,6 +17,10 @@ export class UserComponent {
 
   constructor(private http: HttpClient, private dialog:MatDialog, ) {}
 
+  ngOnInit(){
+    this.events = [];
+  }
+
   searchEventsWithName() {
 
     this.http.get(`http://localhost:8080/events/name?name=${this.eventName}`).subscribe(

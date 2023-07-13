@@ -21,23 +21,13 @@ export class LoginComponent {
         if (response.success===true) {
           // Login successful
           console.log("success")
-          
           this.router.navigate(['/user']);
-
-        } else {
-          // Login failed
-          console.log(response);
-
-          // Display an error message or perform any other actions
         }
       },
       (error) => {
         // Error occurred during login
         if(error.status === 401){
-          console.log(error.error.message);
           console.log(error);
-          
-          
         }
         else{
           console.log('Login error:', error);
